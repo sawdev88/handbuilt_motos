@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <%= render '/layouts/nav' %>
+    <%= render '/layouts/drawer' %>
+    <span class="notice"><%= notice %></span>
+    <span class="alert"><%= alert %></span>
     <%= yield %>
   </body>
 </html>

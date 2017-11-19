@@ -1,0 +1,101 @@
+$ease: .3s ease-in-out;
+
+* {
+  box-sizing: border-box;
+}
+
+body, html, h1, h2, h3, h4, h5, h6, p, li, ul, strong, a {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 1vw;
+}
+
+h1 {
+  font-size: 2.75rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2.25rem
+}
+
+h4 {
+  font-size: 2rem
+}
+
+h5 {
+  font-size: 1.75rem;
+}
+
+h6 {
+  font-size: 1.5rem
+}
+
+p, li, a {
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+// CLASSES
+.left {
+  align-items: flex-start;
+  flex: 1;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.right {
+  align-items: flex-end;
+  flex: 1;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// LAYOUT
+// NAV
+#nav {
+  height: 4rem;
+  border-bottom: 1px solid #333;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+
+  .handle-drawer {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    z-index: 11;
+  }
+}
+
+#drawer {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -30rem;
+  width: 30rem;
+  height: 100%;
+  border-left: 1px solid #333;
+  overflow: hidden;
+  padding: 4rem 1rem;
+  transition: $ease;
+}
+
+.show-drawer {
+  right: 0 !important;
+}

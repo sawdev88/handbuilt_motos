@@ -5,7 +5,10 @@ class PagesController < ApplicationController
   def home
   end
 
-  def garage_listings
+  def garage_list
+  end
+
+  def garage_feed
   end
 
   def profile

@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  
+
+  devise_for :users
   # define root url
   root 'pages#index'
 
   get '/home' => 'pages#home'
 
-  get '/garage-listings' => 'pages#garage-listings'
+  get '/garage-list' => 'pages#garage-list'
+
+  get '/garage-feed' => 'pages#garage-feed'
 
   get '/profile' => 'pages#profile'
 
