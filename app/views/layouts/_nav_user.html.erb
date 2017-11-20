@@ -7,6 +7,7 @@
       <li class="avatar-image" style="background: url(<%= asset_path 'user-placeholder.jpg' %>) no-repeat center center / cover"></li>
       <ul class="hide profile-settings-list">
         <li><%= current_user.username %></li>
+        <li><a href="/user/<%= current_user.username %>">View Profile</a></li>
         <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
         <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
       </ul>
