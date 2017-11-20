@@ -1,5 +1,8 @@
 <h1>PROFILE FOR: <%= @username %></h1>
 
+<h2>Create Post</h2>
+<%= render '/components/post_form' %>
+
 <h2>POSTS</h2>
 <% for @p in @posts %>
 <div>
