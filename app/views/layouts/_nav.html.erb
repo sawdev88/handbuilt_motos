@@ -1,6 +1,5 @@
-<nav id="nav">
-  <a class="left" href="/">HANDBUILTMOTOS</a>
-  <div class="right text-right">
-    <i class="fa fa-bars handle-drawer"></i>
-  </div>
-</nav>
+<% if !user_signed_in? %>
+  <%= render '/layouts/nav_guest' %>
+<% else %>
+  <%= render '/layouts/nav_user' %>
+<% end %>

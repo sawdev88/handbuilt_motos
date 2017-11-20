@@ -1,0 +1,16 @@
+<nav id="nav">
+  <a class="left" href="/">HANDBUILTMOTOS</a>
+  <div class="right text-right">
+    <ul class="inline-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/garage-list">Garage List</a></li>
+      <li><a href="/garage-feed">Garage Feed</a></li>
+      <li class="avatar-image" style="background: url(<%= asset_path 'user-placeholder.jpg' %>) no-repeat center center / cover"></li>
+      <ul class="hide profile-settings-list">
+        <li><%= current_user.email %></li>
+        <li><%= link_to('Edit Profile', edit_user_registration_path) %></li>
+        <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
+      </ul>
+    </ul>
+  </div>
+</nav>
