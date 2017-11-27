@@ -1,12 +1,30 @@
 <h1>PROFILE FOR: <%= @username %></h1>
 
+<br>
+
+<%= render '/components/follow_button', :user => User.find_by_username(params[:id]) %>
+
+<p>FOLLOWERS: <%= current_user.followers.count %></p>
+<p>POSTS: <%= current_user.posts.count %></p>
+
+<br>
+<br>
+<br>
+
+<!-- only show form on users page -->
+<% if current_user.username == @username %>
 <h2>Create Post</h2>
 <%= render '/components/post_form' %>
+<% end %>
+
+<br>
+<br>
+<br>
 
 <h2>POSTS</h2>
 <% for @p in @posts %>
 <div>
-  <h3><%= @p.user_id %></h3>
+  <h3><%= User.find(@p.user_id).username %> - <%= @p.created_at.to_formatted_s(:short) %></h3>
   <p><%= @p.content %></p>
 </div>
 <% end %>

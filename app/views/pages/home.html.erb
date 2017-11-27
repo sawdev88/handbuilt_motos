@@ -4,7 +4,18 @@ home
 <h2>POSTS</h2>
 <% for @p in @posts %>
 <div>
-  <h3><%= @p.user_id %></h3>
+  <h3><%= User.find(@p.user_id).username %> - <%= @p.created_at.to_formatted_s(:short) %></h3>
   <p><%= @p.content %></p>
 </div>
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h4>FOLLOW</h4>
+<% for @u in @toFollow %>
+  <a href="/user/<%= @u.username %>"><%= @u.username %></a>
 <% end %>

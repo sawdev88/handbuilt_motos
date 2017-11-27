@@ -4,6 +4,9 @@ class PagesController < ApplicationController
 
   def home
     @posts = Post.all
+
+    # Show the 5 newest users
+    @toFollow = User.all.first(5);
   end
 
   def garage_list
