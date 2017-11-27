@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -9,7 +11,10 @@ class User < ApplicationRecord
          has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
 
          has_many :following, through: :active_relationships, source: :followed
-         has_many :followers, through: :passive_relationships, source: :follower 
+         has_many :followers, through: :passive_relationships, source: :follower
+
+         validates_integrity_of  :avatar
+         validates_processing_of :avatar
 
          # helper
 
@@ -26,5 +31,14 @@ class User < ApplicationRecord
           # is following a user?
           def following?(other)
             following.include?(other)
+          end
+
+          validates_integrity_of  :avatar
+          validates_processing_of :avatar
+
+          private
+
+          def avatar_size_validation
+            errors[:avatar] << "should be less than 500KB" if avatar.size > 0.5.megabytes
           end
 end
